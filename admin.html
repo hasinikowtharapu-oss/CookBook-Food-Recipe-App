@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>CookBook - Admin</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+
+</head>
+
+<body>
+
+<header class="app-header">
+
+  <div class="brand">
+
+    <span>🍲</span>
+
+    <div>
+
+      <h1>CookBook Admin</h1>
+
+      <p>
+        Recipe Management Dashboard
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="header-actions">
+
+    <select id="language">
+
+      <option value="en">
+        English
+      </option>
+
+      <option value="te">
+        తెలుగు
+      </option>
+
+      <option value="hi">
+        हिन्दी
+      </option>
+
+      <option value="ta">
+        தமிழ்
+      </option>
+
+      <option value="ml">
+        മലയാളം
+      </option>
+
+    </select>
+
+    <button
+      class="icon-btn"
+      data-action="logout"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</header>
+
+
+<div class="admin-layout">
+
+  <aside class="admin-side">
+
+    <button
+      class="active"
+      data-admin-section="dashboard"
+    >
+      📊 Dashboard
+    </button>
+
+    <button
+      data-admin-section="recipes"
+    >
+      🍛 Recipe Manager
+    </button>
+
+    <button
+      data-admin-section="users"
+    >
+      👥 Users
+    </button>
+
+    <button
+      data-admin-section="submissions"
+    >
+      📝 Submissions
+    </button>
+
+    <button
+      data-admin-section="settings"
+    >
+      ⚙️ Settings
+    </button>
+
+  </aside>
+
+
+  <main class="admin-content">
+
+
+    <!-- DASHBOARD -->
+
+    <section
+      id="admin-dashboard"
+      class="admin-section active"
+    >
+
+      <h2>
+        Admin Dashboard
+      </h2>
+
+      <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+
+          <strong id="aRecipes">
+            0
+          </strong>
+
+          <span>
+            Recipes
+          </span>
+
+        </div>
+
+        <div class="dashboard-card">
+
+          <strong id="aUsers">
+            0
+          </strong>
+
+          <span>
+            Users
+          </span>
+
+        </div>
+
+        <div class="dashboard-card">
+
+          <strong id="aSubs">
+            0
+          </strong>
+
+          <span>
+            Submissions
+          </span>
+
+        </div>
+
+        <div class="dashboard-card">
+
+          <strong id="aFeedback">
+            0
+          </strong>
+
+          <span>
+            Feedback
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="form-card">
+
+        <h3>
+          CookBook Features
+        </h3>
+
+        <p>
+          ✓ 130+ Indian Recipes
+        </p>
+
+        <p>
+          ✓ Recipe Search
+        </p>
+
+        <p>
+          ✓ Ingredient Search
+        </p>
+
+        <p>
+          ✓ Veg / Non-Veg Filter
+        </p>
+
+        <p>
+          ✓ Detailed Procedures
+        </p>
+
+        <p>
+          ✓ YouTube Cooking Videos
+        </p>
+
+        <p>
+          ✓ Favorites
+        </p>
+
+        <p>
+          ✓ Collections
+        </p>
+
+        <p>
+          ✓ Meal Planner
+        </p>
+
+        <p>
+          ✓ Shopping List
+        </p>
+
+        <p>
+          ✓ Community Recipes
+        </p>
+
+        <p>
+          ✓ Five Languages
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- RECIPES -->
+
+    <section
+      id="admin-recipes"
+      class="admin-section"
+    >
+
+      <div class="section-title">
+
+        <div>
+
+          <h2>
+            🍛 Recipe Manager
+          </h2>
+
+          <p>
+            Manage all CookBook recipes.
+          </p>
+
+        </div>
+
+        <button
+          id="addRecipeAdmin"
+          class="primary"
+        >
+          + Add Recipe
+        </button>
+
+      </div>
+
+
+      <div class="admin-toolbar">
+
+        <input
+          id="adminRecipeSearch"
+          placeholder="Search recipe"
+        >
+
+        <select
+          id="adminRecipeCategory"
+        >
+
+          <option value="all">
+            All
+          </option>
+
+          <option value="Breakfast">
+            Breakfast
+          </option>
+
+          <option value="Lunch">
+            Lunch
+          </option>
+
+          <option value="Dinner">
+            Dinner
+          </option>
+
+          <option value="Snacks">
+            Snacks
+          </option>
+
+          <option value="Desserts">
+            Desserts
+          </option>
+
+          <option value="Drinks">
+            Drinks
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div
+        id="adminRecipeList"
+        class="admin-list"
+      ></div>
+
+    </section>
+
+
+    <!-- USERS -->
+
+    <section
+      id="admin-users"
+      class="admin-section"
+    >
+
+      <h2>
+        👥 User Manager
+      </h2>
+
+      <p class="hint">
+        Admin can block or delete users.
+      </p>
+
+      <div
+        id="adminUserList"
+        class="admin-list"
+      ></div>
+
+    </section>
+
+
+    <!-- SUBMISSIONS -->
+
+    <section
+      id="admin-submissions"
+      class="admin-section"
+    >
+
+      <h2>
+        📝 Recipe Submissions
+      </h2>
+
+      <p class="hint">
+        Review recipes submitted by users.
+      </p>
+
+      <div
+        id="adminSubmissionList"
+        class="admin-list"
+      ></div>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+
+    <section
+      id="admin-settings"
+      class="admin-section"
+    >
+
+      <h2>
+        ⚙️ CookBook Settings
+      </h2>
+
+
+      <div class="form-card">
+
+        <h3>
+          🎬 YouTube Data API
+        </h3>
+
+        <p class="hint">
+          Paste your YouTube Data API v3 key here.
+          The key is stored in your browser LocalStorage.
+        </p>
+
+        <input
+          id="youtubeApiKey"
+          type="password"
+          placeholder="Paste YouTube API key"
+        >
+
+        <br><br>
+
+        <button
+          id="saveYoutubeKey"
+          class="primary"
+        >
+          Save YouTube API Key
+        </button>
+
+      </div>
+
+
+      <br>
+
+
+      <div class="form-card">
+
+        <h3>
+          💾 Data Management
+        </h3>
+
+        <p class="hint">
+          Export or import your CookBook LocalStorage data.
+        </p>
+
+        <button
+          id="exportData"
+          class="secondary"
+        >
+          Export Data
+        </button>
+
+        <br><br>
+
+        <input
+          id="importData"
+          type="file"
+          accept=".json"
+        >
+
+      </div>
+
+
+      <br>
+
+
+      <div class="form-card">
+
+        <h3>
+          🔄 Recipe Database
+        </h3>
+
+        <p class="hint">
+          Reset the seeded Indian recipe database.
+        </p>
+
+        <button
+          id="resetRecipes"
+          class="danger-btn"
+        >
+          Reset 130+ Recipes
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>CookBook - User</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+</head>
+
+<body>
+
+<header class="app-header">
+
+  <div class="brand">
+
+    <span>🍲</span>
+
+    <div>
+      <h1>CookBook</h1>
+      <p>Indian Food Recipe App</p>
+    </div>
+
+  </div>
+
+  <div class="header-actions">
+
+    <select id="language">
+
+      <option value="en">English</option>
+      <option value="te">తెలుగు</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ta">தமிழ்</option>
+      <option value="ml">മലയാളം</option>
+
+    </select>
+
+    <button
+      class="icon-btn"
+      data-action="logout"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</header>
+
+
+<nav class="nav-bar">
+
+  <button
+    class="active"
+    data-section="home"
+  >
+    🏠 Home
+  </button>
+
+  <button data-section="favorites">
+    ❤️ Favorites
+  </button>
+
+  <button data-section="collections">
+    📚 Collections
+  </button>
+
+  <button data-section="planner">
+    📅 Meal Plan
+  </button>
+
+  <button data-section="shopping">
+    🛒 Shopping List
+  </button>
+
+  <button data-section="submit">
+    📝 Submit Recipe
+  </button>
+
+  <button data-section="community">
+    👥 Community
+  </button>
+
+  <button data-section="profile">
+    👤 Profile
+  </button>
+
+</nav>
+
+
+<main class="page">
+
+<section
+  id="home"
+  class="page-section active"
+>
+
+  <div class="hero">
+
+    <div>
+
+      <p class="eyebrow">
+        WELCOME TO COOKBOOK
+      </p>
+
+      <h2>
+        Discover Delicious Indian Food 🍛
+      </h2>
+
+      <p>
+        Search, save, cook and share
+        your favourite Indian recipes.
+      </p>
+
+    </div>
+
+    <div class="hero-count">
+
+      <strong id="recipeCount">
+        0
+      </strong>
+
+      <span>
+        Recipes
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="search-panel">
+
+    <input
+      id="search"
+      type="search"
+      placeholder="Search recipe, ingredient or cuisine..."
+    >
+
+    <input
+      id="ingredient"
+      type="text"
+      placeholder="Ingredient"
+    >
+
+    <select id="category">
+
+      <option value="all">
+        All Categories
+      </option>
+
+      <option value="Breakfast">
+        Breakfast
+      </option>
+
+      <option value="Lunch">
+        Lunch
+      </option>
+
+      <option value="Dinner">
+        Dinner
+      </option>
+
+      <option value="Snacks">
+        Snacks
+      </option>
+
+      <option value="Desserts">
+        Desserts
+      </option>
+
+      <option value="Drinks">
+        Drinks
+      </option>
+
+    </select>
+
+    <select id="diet">
+
+      <option value="all">
+        All
+      </option>
+
+      <option value="Veg">
+        Veg
+      </option>
+
+      <option value="Non-Veg">
+        Non-Veg
+      </option>
+
+    </select>
+
+    <button id="clearFilters">
+      Clear
+    </button>
+
+  </div>
+
+
+  <div
+    id="categoryChips"
+    class="chips"
+  ></div>
+
+
+  <div
+    id="recipeGrid"
+    class="recipe-grid"
+  ></div>
+
+</section>
+
+
+<section
+  id="favorites"
+  class="page-section"
+>
+
+  <div class="section-title">
+
+    <div>
+      <h2>❤️ Favorites</h2>
+      <p>
+        Your saved recipes
+      </p>
+    </div>
+
+    <strong id="favCount">
+      0
+    </strong>
+
+  </div>
+
+  <div
+    id="favoriteGrid"
+    class="recipe-grid"
+  ></div>
+
+</section>
+
+
+<section
+  id="collections"
+  class="page-section"
+>
+
+  <div class="section-title">
+
+    <div>
+      <h2>📚 My Collections</h2>
+      <p>
+        Create your personal recipe collections.
+      </p>
+    </div>
+
+    <button
+      id="newCollection"
+      class="primary"
+    >
+      + New Collection
+    </button>
+
+  </div>
+
+  <div
+    id="collectionList"
+    class="collection-list"
+  ></div>
+
+</section>
+
+
+<section
+  id="planner"
+  class="page-section"
+>
+
+  <div class="section-title">
+
+    <div>
+      <h2>📅 Meal Planner</h2>
+      <p>
+        Plan your meals for the week.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="planner-form">
+
+    <select id="planDay">
+
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+      <option>Sunday</option>
+
+    </select>
+
+    <select id="planMeal">
+
+      <option>Breakfast</option>
+      <option>Lunch</option>
+      <option>Snacks</option>
+      <option>Dinner</option>
+
+    </select>
+
+    <select id="planRecipe"></select>
+
+    <button
+      id="addPlan"
+      class="primary"
+    >
+      Add
+    </button>
+
+  </div>
+
+  <div
+    id="planList"
+    class="plan-list"
+  ></div>
+
+</section>
+
+
+<section
+  id="shopping"
+  class="page-section"
+>
+
+  <div class="section-title">
+
+    <div>
+      <h2>🛒 Shopping List</h2>
+      <p>
+        Add ingredients you need.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="shopping-add">
+
+    <input
+      id="shoppingInput"
+      placeholder="Enter ingredient"
+    >
+
+    <button
+      id="addShopping"
+      class="primary"
+    >
+      Add
+    </button>
+
+  </div>
+
+  <div
+    id="shoppingList"
+    class="shopping-list"
+  ></div>
+
+</section>
+
+
+<section
+  id="submit"
+  class="page-section"
+>
+
+  <div class="section-title">
+
+    <div>
+      <h2>📝 Submit New Recipe</h2>
+      <p>
+        Share your own recipe with the CookBook community.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="form-card">
+
+    <form id="submitForm">
+
+      <input
+        id="submitName"
+        placeholder="Recipe Name"
+        required
+      >
+
+      <select
+        id="submitCategory"
+        required
+      >
+
+        <option value="Breakfast">
+          Breakfast
+        </option>
+
+        <option value="Lunch">
+          Lunch
+        </option>
+
+        <option value="Dinner">
+          Dinner
+        </option>
+
+        <option value="Snacks">
+          Snacks
+        </option>
+
+        <option value="Desserts">
+          Desserts
+        </option>
+
+        <option value="Drinks">
+          Drinks
+        </option>
+
+      </select>
+
+      <textarea
+        id="submitIngredients"
+        placeholder="Ingredients separated by commas"
+        required
+      ></textarea>
+
+      <textarea
+        id="submitSteps"
+        placeholder="Write one step on each line"
+        required
+      ></textarea>
+
+      <input
+        id="submitImage"
+        type="url"
+        placeholder="Recipe Image URL (optional)"
+      >
+
+      <button
+        class="primary"
+        type="submit"
+      >
+        Submit Recipe
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<section
+  id="community"
+  class="page-section"
+>
+
+  <div class="section-title">
+
+    <div>
+      <h2>👥 Community Cooking</h2>
+      <p>
+        Recipes shared by CookBook users.
+      </p>
+    </div>
+
+  </div>
+
+  <div
+    id="communityList"
+    class="community-list"
+  ></div>
+
+</section>
+
+
+<section
+  id="profile"
+  class="page-section"
+>
+
+  <div class="profile-card">
+
+    <div class="avatar">
+      👩‍🍳
+    </div>
+
+    <h2 id="profileName">
+      User
+    </h2>
+
+    <p id="profileEmail">
+      Email
+    </p>
+
+    <div class="stats">
+
+      <div>
+
+        <strong id="profileFavorites">
+          0
+        </strong>
+
+        <span>
+          Favorites
+        </span>
+
+      </div>
+
+      <div>
+
+        <strong id="profileRecipes">
+          0
+        </strong>
+
+        <span>
+          Recipes
+        </span>
+
+      </div>
+
+      <div>
+
+        <strong>
+          🇮🇳
+        </strong>
+
+        <span>
+          Indian Food
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<div
+  id="recipeModal"
+  class="modal hidden"
+>
+
+  <div class="modal-box">
+
+    <button
+      id="closeRecipe"
+      class="modal-close"
+    >
+      ×
+    </button>
+
+    <div id="recipeDetail"></div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

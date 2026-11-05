@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookBook</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="auth-page">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <main class="auth-card">
+    <div class="brand">
+      <span>🍲</span>
+      <div>
+        <h1>CookBook</h1>
+        <p data-i18n="appSubtitle">Indian Food Recipe App</p>
+      </div>
+    </div>
+
+    <div class="lang-row">
+      <span>🌐</span>
+      <select id="authLanguage" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="te">తెలుగు</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ta">தமிழ்</option>
+        <option value="ml">മലയാളം</option>
+      </select>
+    </div>
+
+    <div class="auth-tabs">
+      <button
+        type="button"
+        class="active"
+        data-auth-tab="login"
+        data-i18n="login">
+        Login
+      </button>
+
+      <button
+        type="button"
+        data-auth-tab="signup"
+        data-i18n="createAccount">
+        Create Account
+      </button>
+    </div>
+
+    <!-- LOGIN SECTION -->
+    <section id="loginBox">
+      <h2 data-i18n="welcome">Welcome Back 👋</h2>
+      <p data-i18n="loginDescription">
+        Login to explore delicious Indian recipes.
+      </p>
+
+      <form id="loginForm">
+        <label for="loginEmail">Email Address</label>
+        <input
+          type="email"
+          id="loginEmail"
+          name="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required>
+
+        <label for="loginPassword">Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          name="password"
+          data-placeholder="password"
+          placeholder="Password"
+          autocomplete="current-password"
+          required>
+
+        <button
+          class="primary"
+          type="submit"
+          data-i18n="login">
+          Login
+        </button>
+      </form>
+    </section>
+
+    <!-- CREATE ACCOUNT SECTION -->
+    <section id="signupBox" class="hidden">
+      <h2 data-i18n="createAccount">Create Account</h2>
+      <p>Create an account to explore and save recipes.</p>
+
+      <form id="signupForm">
+        <label for="signupName">Full Name</label>
+        <input
+          type="text"
+          id="signupName"
+          name="name"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required>
+
+        <label for="signupEmail">Email Address</label>
+        <input
+          type="email"
+          id="signupEmail"
+          name="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required>
+
+        <label for="signupPassword">Password</label>
+        <input
+          type="password"
+          id="signupPassword"
+          name="password"
+          data-placeholder="password"
+          placeholder="Password (minimum 6 characters)"
+          minlength="6"
+          autocomplete="new-password"
+          required>
+
+        <label for="signupRole">Account Type</label>
+        <select id="signupRole" name="role" required>
+          <option value="user" data-i18n="user">User</option>
+          <option value="admin" data-i18n="admin">Admin</option>
+        </select>
+
+        <button
+          class="primary"
+          type="submit"
+          data-i18n="createAccount">
+          Create Account
+        </button>
+      </form>
+    </section>
+
+    <div
+      id="authMessage"
+      class="message"
+      role="status"
+      aria-live="polite">
+    </div>
+  </main>
+</body>
+</html>
